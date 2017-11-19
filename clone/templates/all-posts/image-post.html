@@ -1,0 +1,47 @@
+{% extends 'all-posts/base.html' %}
+{% load staticfiles%}
+
+<!-- Styles block -->
+{% block styles %}
+
+    {{block.super}}
+    <link rel="stylesheet" href="{% static 'css/image-post.css'%}">
+
+{% endblock %}
+
+<!-- Content block -->
+{% block content %}
+
+    {{block.super}}
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <img src="{{image_post.image.url}}" alt="{{image_post.name}}" class="img-responsive">
+                
+            </div>
+        </div>
+
+        <div class="container">
+        
+            <div class="row tagsRow">
+
+                {% for tag in image_post.tags.all %}
+
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 well">
+
+                        <small class="imagePostTags">
+                            <a href="{%url 'tag' tag.id%}">{{tag.name}}</a>
+                        </small>
+                        
+                    </div>
+
+                {% endfor %}
+                
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
