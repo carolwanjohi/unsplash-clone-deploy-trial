@@ -82,8 +82,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'unsplash',
-        'USER': 'carol',
-        'PASSWORD': 'carol1',
     }
 }
 
